@@ -10,9 +10,11 @@ class TestPurchaseOrder(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    @classmethod
     def setUpClass(cls) -> None:
         pass
 
+    @classmethod
     def tearDownClass(cls) -> None:
         pass
 
