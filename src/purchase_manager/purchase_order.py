@@ -2,6 +2,7 @@ import abc
 import dataclasses
 import enum
 from types import NoneType
+from typing import TypeVar, Set
 
 
 @dataclasses.dataclass
@@ -13,6 +14,10 @@ class Product:
     name: str
     price: float
     barecode: str = None
+
+SET_PO = TypeVar('SET_PO', bound=set["PurchaseOrder"], covariant=True)
+class PurchaseManager(SET_PO):
+    """ Simple conteneur de commande d'achat"""
 
 
 class PurchaseOrder(abc.ABC):
@@ -74,7 +79,15 @@ class PurchaseOrder(abc.ABC):
     def __repr__(self) -> str:
         """
         Une representation textuel de la liste
-        :return:
+        :return: un string montant le contenue de la commande d'achat
+        """
+
+    @abc.abstractmethod
+    def __eq__(self, other: "PurchaseOrder") -> bool:
+        """
+        Une commande est considérée comme égale si elle contient le même code et a le même total
+        :param other: la commande d'achat à comparer
+        :return: vrai ou faux
         """
 
     @abc.abstractmethod
