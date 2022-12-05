@@ -1,0 +1,8 @@
+include:
+  - project: odoo-addons/ci-files
+    ref: v2
+    file:
+      - pipeline/python-lib.yml
+
+variables:
+  SUPPORT_PYTHON_VERSION: "3.10;latest"
