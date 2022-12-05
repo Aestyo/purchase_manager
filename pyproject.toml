@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+skip = "__init__.py"
+
+[tool.autoflake]
+check = false
+in-place = true
+recursive = true
+expand-star-imports = true
+remove-all-unused-imports = true
+ignore-init-module-imports = true
+remove-duplicate-keys = true
+remove-unused-variables = true
+
+[tool.flakeheaven]
+base = "https://gitlab.ndp-systemes.fr/odoo-addons/ci-files/-/raw/master/jobs/.pre/base_flakeheaven.toml"
+exclude = ["builds/**.py", "build/**.py", "venv/**.py"]
