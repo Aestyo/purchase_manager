@@ -1,8 +1,9 @@
 import unittest
+
 import purchase_manager
 
-class TestPurchaseOrder(unittest.TestCase):
 
+class TestPurchaseOrder(unittest.TestCase):
     def setUp(self) -> None:
         pass
 

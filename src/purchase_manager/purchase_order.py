@@ -9,6 +9,7 @@ class Product:
     """
     Un article dans sa forme la plus simple (un nom, un prix, un code)
     """
+
     name: str
     price: float
     barecode: str = None
@@ -20,13 +21,14 @@ class PurchaseOrder(abc.ABC):
     Elle peut être dans 2 état distinct (Brouillon-> DRAFT, ou Terminé -> DONE)
     Quand elle est brouillon il est possible d'ajouter des article ou de les supprimers, mais quand elle est Terminée
     """
+
     class State(enum.StrEnum):
         """
         Les état de la commande d'achat
         """
+
         DRAFT = "DRAFT"
         DONE = "DONE"
-
 
     def __init__(self, name: str, state: State = State.DRAFT):
         """
